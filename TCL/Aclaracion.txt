@@ -1,0 +1,1 @@
+Alojada la correspondencia de pines sobre la placa cyc1000, teniendo en cuenta que se mantiene la nomenclatura tcl en la colocación de los pines, es decir compatible con el fichero QSF.
