@@ -1,0 +1,265 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus II License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+# Date created = 16:02:09  July 15, 2015
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		atari800-u16_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone 10 LP"
+set_global_assignment -name DEVICE 10CL025YU256C8G
+set_global_assignment -name TOP_LEVEL_ENTITY placa_ATLAS_V002
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:02:09  JULY 15, 2015"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY .
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+
+##clocks ATLAS_V002_CYC1000
+set_location_assignment PIN_M2 -to CLK_12MHZ
+set_location_assignment PIN_E15 -to CLK_50MHZ #Futuro reloj "CLOCK" de métrica 2520 PAL 28,37516Mhz
+
+##userbutton_CYC1000
+set_location_assignment PIN_N6 -to userbutton
+
+##PULLUP/PULLDOWN_CYC1000 para selección de modo keyboard
+## Valor de la resistencia de L1 y K1 4K7 Ohm
+##si L1 Y K1 Estan en triestado el comportamiento es PS2
+##si L1 Y K1 Estan en logica alta un pull up estan en modo PS2
+##si L1 Y K1 Estan en logica baja es decir un pull down en L1 y K1 afectando a k2 y l2 el modelo pasa a ser usb alta v##elocidad soportando conectores unifiying.
+##set_location_assignment  PIN_K1 -to USBSELECTA ## solo afecta al puerto de teclado
+##set_location_assignment  PIN_L1 -to USBSELECTB ## solo afecta al puerto de teclado
+
+##leds_CYC1000
+set_location_assignment  PIN_M6 -to LED1 ##
+set_location_assignment  PIN_T4 -to LED2 ##
+set_location_assignment  PIN_T3 -to LED3 ##
+set_location_assignment  PIN_R3 -to LED4 ##
+set_location_assignment  PIN_T2 -to LED5 ##
+set_location_assignment  PIN_R4 -to LED6 ##
+set_location_assignment  PIN_N5 -to LED7 ##
+set_location_assignment  PIN_N3 -to LED8 ##
+
+##Flash (EPCQ16A): 16 Mbits
+##Flash ATLAS_V002_CYC1000          ##Nomenclatura A             #Nomeclatura B
+set_location_assignment  PIN_H2 -to ##AS_DATA Data In            #I_MISO
+set_location_assignment  PIN_H1 -to ##AS_DCLK Clock              #O_SCLK
+set_location_assignment  PIN_D2 -to ##AS_NCS Chip Select         #O_CS_n
+set_location_assignment  PIN_C1 -to ##AS_ASDO Data Out           #O_MOSI
+                                                                                                     ##### https://www.hackster.io/MichalsTC/how-to-use-the-fast-serial-mode-on-a-ftdi-ft2232h-7f0682
+##Serial ft2232h ATLAS_V002_CYC1000                                                                  ##### señales de alta velocidad usadas con el FT2232H 
+## bus DBBUS y ADBUS directamente conectados a pines de la FT2232H                                   #####
+set_location_assignment PIN_R7 -to BDBUS0 ## set_location_assignment PIN_R7 -to TX ##Transmitter output of FT2232H (Tx) 3.3 V - ESTA CAMBIADO ES RX ### FSDI
+set_location_assignment PIN_T7 -to BDBUS1 ## set_location_assignment PIN_T7 -to RX ##Receiver input of FT2232H (Rx) 3.3 V - ESTA CAMBIADO ES TX     ### FSCLK
+set_location_assignment PIN_R6 -to BDBUS2 ## set_location_assignment PIN_R6 -to RTS ##Ready To Send handshake output (RTS) 3.3 V                    ### FSDO
+set_location_assignment PIN_T6 -to BDBUS3 ## set_location_assignment PIN_T6 -to CTS ##Clear To Send handshake input (CTS) 3.3 V                     ### FSCTS
+set_location_assignment PIN_R5 -to BDBUS4 ## set_location_assignment PIN_R5 -to DTR ##Data Transmit Ready (DTR) 3.3 V                               ###
+set_location_assignment PIN_T5 -to BDBUS5 ## set_location_assignment PIN_T5 -to DSR ##Data Set Ready (DSR) 3.3 V                                    ###
+set_location_assignment PIN_M8 -to ADBUS4 ## set_location_assignment PIN_M8                                                                         
+set_location_assignment PIN_N8 -to ADBUS7 ## set_location_assignment PIN_N8
+##Con la ultima revisión del 29 de septiembre 2022 conocemos la conexión de los pines FPGA M8 y N8.
+
+
+
+## ACELERÓMETRO_CYC1000
+set_location_assignment PIN_G2 -to SDI ##
+set_location_assignment PIN_G1 -to SDO ##
+set_location_assignment PIN_F3 -to SPC ##
+set_location_assignment PIN_D1 -to CS ##
+set_location_assignment PIN_B1 -to INT1 ##
+set_location_assignment PIN_C2 -to INT2 ##
+
+
+
+##SDRAM (W9864G6JT-6): 64 Mbits
+##sdram ATLAS_V002_CYC1000
+set_location_assignment PIN_B14 -to DRAM_CLK
+set_location_assignment PIN_B13 -to DRAM_DQML
+set_location_assignment PIN_D12 -to DRAM_DQMH
+set_location_assignment PIN_A7 -to DRAM_NWE
+set_location_assignment PIN_C8 -to DRAM_NCAS
+set_location_assignment PIN_B7 -to DRAM_NRAS
+set_location_assignment PIN_A4 -to DRAM_BA[0]
+set_location_assignment PIN_B6 -to DRAM_BA[1]
+set_location_assignment PIN_A3 -to DRAM_A[0]
+set_location_assignment PIN_B5 -to DRAM_A[1]
+set_location_assignment PIN_B4 -to DRAM_A[2]
+set_location_assignment PIN_B3 -to DRAM_A[3]
+set_location_assignment PIN_C3 -to DRAM_A[4]
+set_location_assignment PIN_D3 -to DRAM_A[5]
+set_location_assignment PIN_E6 -to DRAM_A[6]
+set_location_assignment PIN_E7 -to DRAM_A[7]
+set_location_assignment PIN_D6 -to DRAM_A[8]
+set_location_assignment PIN_D8 -to DRAM_A[9]
+set_location_assignment PIN_A5 -to DRAM_A[10]
+set_location_assignment PIN_E8 -to DRAM_A[11]
+set_location_assignment PIN_A2 -to DRAM_A[12]
+set_location_assignment PIN_C6 -to DRAM_A[13]
+set_location_assignment PIN_B10 -to DRAM_DQ[0]
+set_location_assignment PIN_A10 -to DRAM_DQ[1]
+set_location_assignment PIN_B11 -to DRAM_DQ[2]
+set_location_assignment PIN_A11 -to DRAM_DQ[3]
+set_location_assignment PIN_A12 -to DRAM_DQ[4]
+set_location_assignment PIN_D9 -to DRAM_DQ[5]
+set_location_assignment PIN_B12 -to DRAM_DQ[6]
+set_location_assignment PIN_C9 -to DRAM_DQ[7]
+set_location_assignment PIN_D11 -to DRAM_DQ[8]
+set_location_assignment PIN_E11 -to DRAM_DQ[9]
+set_location_assignment PIN_A15 -to DRAM_DQ[10]
+set_location_assignment PIN_E9 -to DRAM_DQ[11]
+set_location_assignment PIN_D14 -to DRAM_DQ[12]
+set_location_assignment PIN_F9 -to DRAM_DQ[13]
+set_location_assignment PIN_C14 -to DRAM_DQ[14]
+set_location_assignment PIN_A14 -to DRAM_DQ[15]
+set_location_assignment PIN_A6 -to DRAM_CS
+set_location_assignment PIN_F8 -to DRAM_CKE
+
+##PS2 Keyboard ATLAS_V002_CYC1000               #A partir de la ATLAS multi sd (La opción más viable es crear un cable que haga la inversión de forma física)
+set_location_assignment PIN_K2	-to PS2_DATA    PS2_CLK_MSD
+set_location_assignment PIN_L2	-to PS2_CLK		PS2_DATA_MSD
+##PS2 Mouse ATLAS_V002
+set_location_assignment PIN_B16	-to MOUSE_DATA
+set_location_assignment PIN_C16	-to MOUSE_CLK
+
+##Audio PWM_CYC1000
+set_location_assignment PIN_T12	-to delta_L
+set_location_assignment PIN_R11	-to delta_R
+
+##EAR_CYC1000
+set_location_assignment PIN_P11	-to EAR
+
+##BUS MULTIPROPÓSITO PROTEGIDO ATLAS_V002_CYC1000
+#el pin select tiene doble funcion es también ear
+##set_location_assignment PIN_P11	-to JOY_SELECT ### placa mandos de super Nintendo
+set_location_assignment PIN_T15	-to JOY_LEFT   # to clock
+set_location_assignment PIN_N16	-to JOY_RIGHT  # to lacht
+set_location_assignment PIN_J14	-to JOY_UP     # to data1
+set_location_assignment PIN_R1	-to JOY_DOWN   # to data2
+set_location_assignment PIN_K15	-to JOY_FIRE1  # to data3
+set_location_assignment PIN_K16	-to JOY_FIRE2  # to data4 
+
+# Joystick ########################################################################################
+# Configuracion muy usada en arreglos
+#   NET joy<5>  PULLUP ; # fire 2
+#   NET joy<4>  PULLUP ; # fire 1
+#   NET joy<3>  PULLUP ; # up
+#   NET joy<2>  PULLUP ; # down
+#   NET joy<1>  PULLUP ; # left
+#   NET joy<0>  PULLUP ; # right
+#
+####################################################################################################
+
+##SD ATLAS_V002_CYC1000 se agrega la correspondencia de los puertos asociados a los fuentes del REVERSE U16: https://github.com/mvvproject/ReVerSE-U16
+##MISO - Entrada de maestro Salida de esclavo
+##SCK - Señal de reloj de maestro a esclavo
+##SS - La señal de selección de esclavos selecciona dispositivos esclavosmu
+##                                  
+##                                  ##Modo MMC/SD   ##Asignación U16 #                                          #Se numeran los pines de la mmc/sd física   # nomenclatura normal en modo spi
+set_location_assignment PIN_R12	-to SD_CS           #SD_NCS          #Señal de selección                        #pin2_mmc/sd CD/DAT3 entrada/salida         # CS -> Selección de chip estado normalmente negado
+set_location_assignment PIN_T13	-to SD_CLK          #SD_CLK          #Señal de reloj                            #pin5_mmc/sd CLK     reloj                  # SCLK-> Reloj
+set_location_assignment PIN_R13	-to SD_MISO         #SD_SO           #Señal de entrada al ser maestro el spi    #pin3_mmc/sd CMD     respuesta de comandos  # DI -> Entrada de datos
+set_location_assignment PIN_T14	-to SD_MOSI         #SD_SI           #Señal de salida al ser maestro el spi     #pin7_mmc/sd DAT0    entrada/salida         # DO -> Salida de datos
+set_location_assignment PIN_P14	-to SD_DATA1        #                #                                          #pin8_mmc/sd DAT1    entrada/salida         # ----------------------
+set_location_assignment PIN_R14	-to SD_DATA2        #                #                                          #pin1_mmc/sd DAT2    entrada/salida         # ----------------------
+
+## HDMI Direct ATLAS_V002_CYC1000                                         ### VGA222 adaptador de 64Colores #SCART232-128C  #MIPI-8 pantalla tipo ILI9486L
+set_location_assignment PIN_L16 -to TMDS[0] # CLK-                        ### HS                            # CSYNC         #MIPI_TX/RX0_D3N
+set_location_assignment PIN_L15 -to TMDS[1] # CLK+ # clock channel        ### VS                            # GREEN[0]      #MIPI_TX/RX0_D3P
+set_location_assignment PIN_P1 -to TMDS[2]  # 0-                          ### BLUE[0]                       # BLUE[0]       #MIPI_TX/RX0_D2N
+set_location_assignment PIN_P2 -to TMDS[3]  # 0+   # blue channel         ### BLUE[1]                       # BLUE[1]       #MIPI_TX/RX0_D2P
+set_location_assignment PIN_J1 -to TMDS[4]  # 1-                          ### GREEN[0]                      # GREEN[1]      #MIPI_TX/RX0_D1N
+set_location_assignment PIN_J2 -to TMDS[5]  # 1+   # green channel        ### GREEN[1]                      # GREEN[2]      #MIPI_TX/RX0_D1P
+set_location_assignment PIN_N1 -to TMDS[6]  # 2-                          ### RED[0]                        # RED[0]        #MIPI_TX/RX0_D0N
+set_location_assignment PIN_N2 -to TMDS[7]  # 2+   # red channel          ### RED[1]                        # RED[1]        #MIPI_TX/RX0_D0P 
+#---------------------------------------------------------------------------------------------------------------------------#MIPI_TX/RX0_CLKN (Esta señal hay que buscarla,DIFFIO_R4N -> PIN_F16)
+#---------------------------------------------------------------------------------------------------------------------------#MIPI_TX/RX0_CLKP (Esta señal hay que buscarla,DIFFIO_R4P -> PIN_F15)
+
+
+
+
+
+###############################################################################################################
+############# CONEXIÓN CON LA FPGA Y EL BUS SBC SON 6 PINES EN TOTAL                                   ########
+###############################################################################################################
+###SERIAL_2_CYC1000                      ##Necesarias colocar unas pull up propuesto I2C                     ##
+set_location_assignment PIN_D16	-to RX2 ##SCL -> Reloj                                                       ##
+set_location_assignment PIN_D15	-to TX2 ##SDA -> Datos                                                       ##
+                                                                                                             ##
+###SPI SBC 40 pines_CYC1000                 ## STM32F103F     ## ## UDA1334 minijack shaeon # MIPI 8BITS     ##
+set_location_assignment PIN_F13	-to PI_CLK  ## CLK ->SPI_SCK  ## ## DATA                    #                ##
+set_location_assignment PIN_F15	-to PI_MISO ## MISO->SPI_DI   ## ## BCLK                    # MIPI_TX0_CLKP  ##
+set_location_assignment PIN_F16	-to PI_MOSI ## MOSI->SPI_DO   ## ## LRCLK                   # MIPI_TX0_CLKN  ##
+set_location_assignment PI1N_C15 -to PI_CS  ## CS  ->SPI_SS2  ## ##                         #                ##
+###############################################################################################################
+
+######################################################
+# Inciso sobre la colocación JTAG en la pi por gpio  #
+######################################################
+# TCK -> GPIO17                                      #
+# TDI -> GPIO22                                      #
+# TDO -> GPIO27                                      #
+# TMS -> GPIO4                                       #
+######################################################
+
+######################################################
+#Señales del puerto JTAG en Cyclone  10CL025YU256C8G #
+######################################################
+# PIN_H3 JTAG TCK                                    #
+# PIN_H4 JTAG TDI                                    #
+# PIN_J4 JTAG TDO                                    #
+# PIN_J5 JTAG TMS                                    #
+# PIN_J3      nCE                                    #
+# PIN_H5      nCONFIG                                #
+######################################################
+
+
+
+######################################################################################################################
+#Señales del FT2232H de alta velocidad                                                                               #
+######################################################################################################################
+#FSDI, input, data, receive serial data                                                                              #
+#FSCLK, input, clock in serial data from FSDI and FSDO                                                               #
+#FSDO, output, serial data out from FT2232H                                                                          #
+#FSCTS, output, driven low to indicate the FT2232H is ready to send data                                             #
+######################################################################################################################
+#CYC1000 FPGA pin out to the FT2232H                                                                                 #
+#The cyclone 10LP fpga 10CL025YU256C8G on the CYC1000 is connected to the FT2232H chip using the following pines:    #
+#FSDI -> PIN_R7                                                                                                      #
+#FSCLK -> PIN_T7                                                                                                     #
+#FSDO -> PIN_M0 Revisar puede estar intercambiado con PIN_N8                                                         #
+#FSCTS -> PIN_N8 Revisar                                                                                             #
+######################################################################################################################
+
