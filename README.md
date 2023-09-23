@@ -260,8 +260,6 @@ Se contemplan los usos has la fecha de diferentes desarrolladores.
 | set_location_assignment PIN_D15	-to | TX2 | SDA -> Datos |
 
 
-
-                                                                                                            ##
 | Uso inicial SPI SBC 40 pines_CYC1000  | Conexión con microcontrolador STM32F103F  | uso  UDA1334 minijack shaeon/Kyp | Búsqueda de 2 nuevos pares para el MIPI 8BITS |
 | ----- | ---- | ---- | ---- |
 | set_location_assignment PIN_F13	-to PI_CLK  | ## CLK ->SPI_SCK  | ## DATA                  | #                 |
