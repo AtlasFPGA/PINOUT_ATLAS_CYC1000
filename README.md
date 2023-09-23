@@ -62,10 +62,10 @@ set_location_assignment  PIN_N3 -to LED8 ##
 la nomenclatura usada en diferentes tipos de códigos y su referencia asociada al pin de la fpga 10CL025YU256C8G
 
 
-| Flash (EPCQ16A): 16 Mbits| Nomenclatura A |Nomenclatura B |
+| Flash (EPCQ16A): 16 Mbits| Nomenclatura A |Nomenclatura B | Explicación VARIABLE |
 | ----- | ---- | ---- |
-| set_location_assignment  PIN_H2 -to | AS_DATA Data In | I_MISO |
-| set_location_assignment  PIN_H1 -to | AS_DCLK Clock | O_SCLK |
-| Cset_location_assignment  PIN_D2 -to | AS_NCS Chip Select | O_CS_n |
-| set_location_assignment  PIN_C1 -to | AS_ASDO Data Out | O_MOSI |
+| set_location_assignment  PIN_H2 -to | AS_DATA  | I_MISO | Data In |
+| set_location_assignment  PIN_H1 -to | AS_DCLK  | O_SCLK | Clock |
+| Cset_location_assignment  PIN_D2 -to | AS_NCS  | O_CS_n | Chip Select |
+| set_location_assignment  PIN_C1 -to | AS_ASDO  | O_MOSI | Data Out |
 
