@@ -230,8 +230,8 @@ set_location_assignment PIN_K16	-to JOY_FIRE2  # to data4
 
 ### Modo DVI/HDMI y sucesivos dacs analógicos en proyecto.
 
-| HDMI Direct ATLAS_V002_CYC1000|   Pares positivos y negativos con numeración |                                      ### VGA222 adaptador de 64Colores | #SCART232-128C | #MIPI-8 pantalla tipo ILI9486L|
-| ----- | ---- | ---- | ---- | ---- | ---- |
+| HDMI Direct ATLAS_V002_CYC1000 | Pares positivos y negativos con numeración | ### VGA222 adaptador de 64Colores | #SCART232-128C | #MIPI-8 pantalla tipo ILI9486L|
+| ----- | ---- | ---- | ---- | ---- |
 | set_location_assignment PIN_L16 -to TMDS[0] | # CLK-                        | ### HS                            | # CSYNC        | #MIPI_TX/RX0_D3N |
 | set_location_assignment PIN_L15 -to TMDS[1] | # CLK+ # clock channel        | ### VS                            | # GREEN[0]     | #MIPI_TX/RX0_D3P |
 | set_location_assignment PIN_P1 -to TMDS[2]  | # 0-                          | ### BLUE[0]                       | # BLUE[0]      | #MIPI_TX/RX0_D2N |
