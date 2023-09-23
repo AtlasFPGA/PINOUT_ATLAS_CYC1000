@@ -240,5 +240,5 @@ set_location_assignment PIN_K16	-to JOY_FIRE2  # to data4
 | set_location_assignment PIN_J2 -to TMDS[5]  | # 1+   # green channel        | ### GREEN[1]                      | # GREEN[2]     | #MIPI_TX/RX0_D1P | 
 | set_location_assignment PIN_N1 -to TMDS[6]  | # 2-                          | ### RED[0]                        | # RED[0]       | #MIPI_TX/RX0_D0N |
 | set_location_assignment PIN_N2 -to TMDS[7]  | # 2+   # red channel          | ### RED[1]                        | # RED[1]       | #MIPI_TX/RX0_D0P |
-| | | | | |#MIPI_TX/RX0_CLKN (Esta señal hay que buscarla,DIFFIO_R4N -> PIN_F16 |
-| | | | | |#MIPI_TX/RX0_CLKP (Esta señal hay que buscarla,DIFFIO_R4P -> PIN_F15 |
+| | | | |#MIPI_TX/RX0_CLKN (Esta señal hay que buscarla,DIFFIO_R4N -> PIN_F16 |
+| | | | |#MIPI_TX/RX0_CLKP (Esta señal hay que buscarla,DIFFIO_R4P -> PIN_F15 |
