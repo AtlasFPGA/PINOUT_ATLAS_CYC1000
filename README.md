@@ -88,3 +88,98 @@ Con la ultima revisión del 29 de septiembre 2022 conocemos la conexión de los 
 
 
 Estudio de un posible modo de alta velocidad FTDI para la CYC1000: https://www.hackster.io/MichalsTC/how-to-use-the-fast-serial-mode-on-a-ftdi-ft2232h-7f0682
+
+### Acelerómetro  integrado en la CYC1000 LIS3DH de ST.
+
+https://www.st.com/resource/en/datasheet/lis3dh.pdf
+
+```
+## ACELERÓMETRO_CYC1000
+set_location_assignment PIN_G2 -to SDI ##
+set_location_assignment PIN_G1 -to SDO ##
+set_location_assignment PIN_F3 -to SPC ##
+set_location_assignment PIN_D1 -to CS ##
+set_location_assignment PIN_B1 -to INT1 ##
+set_location_assignment PIN_C2 -to INT2 ##
+```
+
+Trabajos asociados al manejo del acelerómetro: https://github.com/jakubcabal/spi-fpga
+
+
+
+### Memoria W9864G6JT-6 en configuración de 8Mbytes con un bus de 16 bits, el régimen de esta memoria de celular son los 166Mhz de funcionamiento, y alcanza los 233Mhz sin inmutarse.
+
+```
+##SDRAM (W9864G6JT-6): 64 Mbits
+##sdram ATLAS_V002_CYC1000
+set_location_assignment PIN_B14 -to SDRAM_CLK
+set_location_assignment PIN_B13 -to SDRAM_DQML
+set_location_assignment PIN_D12 -to SDRAM_DQMH
+set_location_assignment PIN_A7 -to SDRAM_NWE
+set_location_assignment PIN_C8 -to SDRAM_NCAS
+set_location_assignment PIN_B7 -to SDRAM_NRAS
+set_location_assignment PIN_A4 -to SDRAM_BA[0]
+set_location_assignment PIN_B6 -to SDRAM_BA[1]
+set_location_assignment PIN_A3 -to SDRAM_A[0]
+set_location_assignment PIN_B5 -to SDRAM_A[1]
+set_location_assignment PIN_B4 -to SDRAM_A[2]
+set_location_assignment PIN_B3 -to SDRAM_A[3]
+set_location_assignment PIN_C3 -to SDRAM_A[4]
+set_location_assignment PIN_D3 -to SDRAM_A[5]
+set_location_assignment PIN_E6 -to SDRAM_A[6]
+set_location_assignment PIN_E7 -to SDRAM_A[7]
+set_location_assignment PIN_D6 -to SDRAM_A[8]
+set_location_assignment PIN_D8 -to SDRAM_A[9]
+set_location_assignment PIN_A5 -to SDRAM_A[10]
+set_location_assignment PIN_E8 -to SDRAM_A[11]
+set_location_assignment PIN_A2 -to SDRAM_A[12]
+set_location_assignment PIN_C6 -to SDRAM_A[13]
+set_location_assignment PIN_B10 -to SDRAM_DQ[0]
+set_location_assignment PIN_A10 -to SDRAM_DQ[1]
+set_location_assignment PIN_B11 -to SDRAM_DQ[2]
+set_location_assignment PIN_A11 -to SDRAM_DQ[3]
+set_location_assignment PIN_A12 -to SDRAM_DQ[4]
+set_location_assignment PIN_D9 -to SDRAM_DQ[5]
+set_location_assignment PIN_B12 -to SDRAM_DQ[6]
+set_location_assignment PIN_C9 -to SDRAM_DQ[7]
+set_location_assignment PIN_D11 -to SDRAM_DQ[8]
+set_location_assignment PIN_E11 -to SDRAM_DQ[9]
+set_location_assignment PIN_A15 -to SDRAM_DQ[10]
+set_location_assignment PIN_E9 -to SDRAM_DQ[11]
+set_location_assignment PIN_D14 -to SDRAM_DQ[12]
+set_location_assignment PIN_F9 -to SDRAM_DQ[13]
+set_location_assignment PIN_C14 -to SDRAM_DQ[14]
+set_location_assignment PIN_A14 -to SDRAM_DQ[15]
+set_location_assignment PIN_A6 -to SDRAM_CS
+set_location_assignment PIN_F8 -to SDRAM_CKE
+```
+
+### Cuestión PS2 Teclado, la mejor opción para los poseedores de la placa prototipo morada invertir las señales con un cable ps2 que invierta las señales de forma física.
+
+Este prototipo morado se ha desestimado por diversos fallos. 
+
+El PS2 y la anulación del ultimo prototipo, en la que se invirtió el par de datos del teclado por el de reloj.
+
+### Todas las ALTAS así como la Morada con recolocador teclado.
+
+```
+##PS2 Keyboard ATLAS_V002_CYC1000               
+set_location_assignment PIN_K2	-to PS2_DATA
+set_location_assignment PIN_L2	-to PS2_CLK
+```
+
+#### La morada hay 10 unidades en la comunidad, si se usa sin recolocador PS2.
+
+```
+##PS2 Keyboard ATLAS_MORADA 
+set_location_assignment PIN_K2	-to  PS2_CLK_MSD
+set_location_assignment PIN_L2	-to  PS2_DATA_MSD
+```
+
+las pistas asociadas al ratón no se vieron afectadas son comunes a la totalidad de las ATLAS.
+
+```
+##PS2 Mouse ATLAS_V002
+set_location_assignment PIN_B16	-to MOUSE_DATA
+set_location_assignment PIN_C16	-to MOUSE_CLK
+```
