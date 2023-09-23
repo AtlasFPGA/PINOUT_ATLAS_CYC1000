@@ -32,7 +32,7 @@ set_location_assignment PIN_N6 -to userbutton
 
 ```
 
-##  LA PLACA ATLAS ES POR AHORA LA PRIMERA PLACA EN USAR LAS PULL CONFIGURABLES DE LA CYC1000 "K1 & L1" PARA OBTENER SOPORTE USB
+##  LA PLACA ATLAS ES POR AHORA LA PRIMERA PLACA EN USAR LAS PULL CONFIGURABLES DE LA CYC1000 K1 & L1 PARA OBTENER SOPORTE USB
  PULLUP/PULLDOWN_CYC1000 para selección de modo keyboard
  Valor de la resistencia de L1 y K1 4K7 Ohm
  si L1 Y K1 Estan en triestado el comportamiento es PS2
