@@ -244,3 +244,29 @@ Uno de los objetivos irrenunciables de ATLAS es tener una consola de mano, por e
 | set_location_assignment PIN_N2 -to TMDS[7]  | # 2+   # red channel          | ### RED[1]                        | # RED[1]       | #MIPI_TX/RX0_D0P |
 | | | | |#MIPI_TX/RX0_CLKN (Esta señal hay que buscarla,DIFFIO_R4N -> PIN_F16 |
 | | | | |#MIPI_TX/RX0_CLKP (Esta señal hay que buscarla,DIFFIO_R4P -> PIN_F15 |
+
+
+## INTERCONEXIÓN FPGA <-> SBC O Microcontrolador.
+
+Se han destinado 6 señales de la fpga directas sin pull alguna, accesibles desde el bus de 40 pines normalizado 20x2 a una distancia entre taladros de 2,54mm.
+Se contemplan los usos has la fecha de diferentes desarrolladores.
+
+#Serie o I2C si se colocan pull ups.
+
+
+| SERIAL_SBC/Micro_CYC1000 | Serie | Propuesto I2C |
+| ----- | ---- | ---- |
+| set_location_assignment PIN_D16	-to | RX2 | SCL -> Reloj |
+| set_location_assignment PIN_D15	-to | TX2 | SDA -> Datos |
+
+
+
+                                                                                                            ##
+| Uso inicial SPI SBC 40 pines_CYC1000  | Conexión con microcontrolador STM32F103F  | uso  UDA1334 minijack shaeon/Kyp | Búsqueda de 2 nuevos pares para el MIPI 8BITS |
+| ----- | ---- | ---- | ---- |
+| set_location_assignment PIN_F13	-to PI_CLK  | ## CLK ->SPI_SCK  | ## DATA                  | #                 |
+| set_location_assignment PIN_F15	-to PI_MISO | ## MISO->SPI_DI   | ## BCLK                  | # MIPI_TX0_CLKP   |
+| set_location_assignment PIN_F16	-to PI_MOSI | ## MOSI->SPI_DO   | ## LRCLK                 | # MIPI_TX0_CLKN   |
+| set_location_assignment PI1N_C15 -to PI_CS  | ## CS  ->SPI_SS2  | ##                       | #                 |
+
+
