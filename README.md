@@ -63,9 +63,7 @@ la nomenclatura usada en diferentes tipos de códigos y su referencia asociada a
 
 
 | Flash (EPCQ16A): 16 Mbits| Nomenclatura A |Nomenclatura B |
-
 | ----- | ---- | ---- |
-
 | set_location_assignment  PIN_H2 -to | AS_DATA Data In | I_MISO |
 | set_location_assignment  PIN_H1 -to | AS_DCLK Clock | O_SCLK |
 | Cset_location_assignment  PIN_D2 -to | AS_NCS Chip Select | O_CS_n |
