@@ -228,7 +228,9 @@ set_location_assignment PIN_K16	-to JOY_FIRE2  # to data4
 | set_location_assignment PIN_P14	-to SD_DATA1  |                  |                                             | #pin8_mmc/sd DAT1    entrada/salida        | # ---------------------- |
 | set_location_assignment PIN_R14	-to SD_DATA2   |                  |                                            | #pin1_mmc/sd DAT2    entrada/salida        | # ---------------------- |
 
-### Modo DVI/HDMI y sucesivos dacs analógicos en proyecto.
+### Modo DVI/HDMI y sucesivos dacs analógicos en proyecto, Así como buscar las señales diferenciales necesarias para poder usar una pantalla portatil MIPI-8.
+
+Uno de los objetivos irrenunciables de ATLAS es tener una consola de mano, por eso se contempla el protocolo mipi.
 
 | HDMI Direct ATLAS_V002_CYC1000 | Pares positivos y negativos con numeración | ### VGA222 adaptador de 64Colores | #SCART232-128C | #MIPI-8 pantalla tipo ILI9486L|
 | ----- | ---- | ---- | ---- | ---- |
