@@ -69,3 +69,22 @@ la nomenclatura usada en diferentes tipos de códigos y su referencia asociada a
 | Cset_location_assignment  PIN_D2 -to | AS_NCS  | O_CS_n | Chip Select |
 | set_location_assignment  PIN_C1 -to | AS_ASDO  | O_MOSI | Data Out |
 
+### El lujo de esta placa es disponer de todo un FTDI FT2232H, y tener asociados bastantes pines de la fpga.
+
+bus DBBUS y ADBUS directamente conectados a pines de la FT2232H.
+
+| FTDI FT2232H | Nomenclatura FTDI | Nomenclatura B |  Explicación VARIABLE|
+| ----- | ---- | ---- | ---- |
+| set_location_assignment PIN_R7 -to | BDBUS0 |FSDI| TX ##Transmitter output of FT2232H (Tx) 3.3 V - ESTA CAMBIADO ES RX |
+| set_location_assignment PIN_T7 -to | BDBUS1 |FSCLK| RX ##Receiver input of FT2232H (Rx) 3.3 V - ESTA CAMBIADO ES TX    | 
+| set_location_assignment PIN_R6 -to | BDBUS2 |FSDO| RTS ##Ready To Send handshake output (RTS) 3.3 V                    | 
+| set_location_assignment PIN_T6 -to | BDBUS3 |FSCTS| CTS ##Clear To Send handshake input (CTS) 3.3 V                    | 
+| set_location_assignment PIN_R5 -to | BDBUS4 | | DTR ##Data Transmit Ready (DTR) 3.3 V                                  |
+| set_location_assignment PIN_T5 -to | BDBUS5 | | DSR ##Data Set Ready (DSR) 3.3 V                                       |
+| set_location_assignment PIN_M8 -to | ADBUS4 | |                                                                        |
+| set_location_assignment PIN_N8 -to | ADBUS7 | |                                                                        |
+
+Con la ultima revisión del 29 de septiembre 2022 conocemos la conexión de los pines FPGA M8 y N8.
+
+
+Estudio de un posible modo de alta velocidad FTDI para la CYC1000: https://www.hackster.io/MichalsTC/how-to-use-the-fast-serial-mode-on-a-ftdi-ft2232h-7f0682
