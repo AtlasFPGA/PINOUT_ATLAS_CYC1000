@@ -268,3 +268,50 @@ Se contemplan los usos has la fecha de diferentes desarrolladores.
 | set_location_assignment PI1N_C15 -to PI_CS  | ## CS  ->SPI_SS2  | ##                       | #                 |
 
 
+# INCISOS ACLARATORIOS
+
+
+### COLOCACIÓN DE LA PROGRAMACIÓN JTAG CON TERMINOLOGÍA SBC RASPBERRY PI USANDO YA UN BUS DE 40 PINES.
+
+```
+######################################################
+# Inciso sobre la colocación JTAG en la pi por gpio  #
+######################################################
+# TCK -> GPIO17                                      #
+# TDI -> GPIO22                                      #
+# TDO -> GPIO27                                      #
+# TMS -> GPIO4                                       #
+######################################################
+
+######################################################
+#Señales del puerto JTAG en Cyclone  10CL025YU256C8G #
+######################################################
+# PIN_H3 JTAG TCK                                    #
+# PIN_H4 JTAG TDI                                    #
+# PIN_J4 JTAG TDO                                    #
+# PIN_J5 JTAG TMS                                    #
+# PIN_J3      nCE                                    #
+# PIN_H5      nCONFIG                                #
+######################################################
+```
+
+### Desarrollo de los modos de alta velocidad del FT2232H y futuros análisis.
+
+```
+######################################################################################################################
+#Señales del FT2232H de alta velocidad                                                                               #
+######################################################################################################################
+#FSDI, input, data, receive serial data                                                                              #
+#FSCLK, input, clock in serial data from FSDI and FSDO                                                               #
+#FSDO, output, serial data out from FT2232H                                                                          #
+#FSCTS, output, driven low to indicate the FT2232H is ready to send data                                             #
+######################################################################################################################
+#CYC1000 FPGA pin out to the FT2232H                                                                                 #
+#The cyclone 10LP fpga 10CL025YU256C8G on the CYC1000 is connected to the FT2232H chip using the following pines:    #
+#FSDI -> PIN_R7                                                                                                      #
+#FSCLK -> PIN_T7                                                                                                     #
+#FSDO -> PIN_M0 Revisar puede estar intercambiado con PIN_N8                                                         #
+#FSCTS -> PIN_N8 Revisar                                                                                             #
+######################################################################################################################``
+
+```
