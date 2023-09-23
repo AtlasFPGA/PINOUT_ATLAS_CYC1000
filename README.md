@@ -220,7 +220,7 @@ set_location_assignment PIN_K16	-to JOY_FIRE2  # to data4
 
 
 | TCL y colocación pines 10CL025YU256C8G | Asignación U16 | Explicación modo SPI | Modo MMC/SD Física | nomenclatura modo SPI mayoritario |
-| ----- | ---- | ---- | ---- |
+| ----- | ---- | ---- | ---- | ---- |
 | set_location_assignment PIN_R12	-to SD_CS |           #SD_NCS |         #Señal de selección                     |   #pin2_mmc/sd CD/DAT3 entrada/salida       |  # CS -> Selección de chip estado normalmente negado |
 | set_location_assignment PIN_T13	-to SD_CLK |         #SD_CLK   |       #Señal de reloj                          |  #pin5_mmc/sd CLK     reloj                 | # SCLK-> Reloj |
 | set_location_assignment PIN_R13	-to SD_MISO |        #SD_SO     |      #Señal de entrada al ser maestro el spi  |  #pin3_mmc/sd CMD     respuesta de comandos | # DI -> Entrada de datos |
