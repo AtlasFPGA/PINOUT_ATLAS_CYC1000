@@ -183,3 +183,49 @@ las pistas asociadas al ratón no se vieron afectadas son comunes a la totalidad
 set_location_assignment PIN_B16	-to MOUSE_DATA
 set_location_assignment PIN_C16	-to MOUSE_CLK
 ```
+
+
+### Audio analógico con una resistencia y un condensador para uso tanto de deltasigma (Máximo teórico 12Bits de resolución) como de sonidos generados por pwm (Muy inferior en resolución de sonido al deltasigma).
+
+```
+##Audio PWM_CYC1000
+set_location_assignment PIN_T12	-to delta_L
+set_location_assignment PIN_R11	-to delta_R
+```
+
+### Circuito de escucha de cintas de casette, se pidió a Antonio Villena si se podía incorporar el mismo circuito que usa ZXUNO.
+
+```
+##EAR_CYC1000
+set_location_assignment PIN_P11	-to EAR
+```
+
+### Bus DB9, con pull ups lo que permite el uso del mismo como expansor GPIOS por I2C en total 3 buses I2C, función retro un JOYSTICK directo Norma ATARI a la que se añade un segundo disparo, 4 posiciones y 2 disparos.
+
+```
+##BUS MULTIPROPÓSITO PROTEGIDO ATLAS_V002_CYC1000
+#el pin select tiene doble funcion es también ear
+##set_location_assignment PIN_P11	-to JOY_SELECT ### placa mandos de super Nintendo
+set_location_assignment PIN_T15	-to JOY_LEFT   # to clock
+set_location_assignment PIN_N16	-to JOY_RIGHT  # to lacht
+set_location_assignment PIN_J14	-to JOY_UP     # to data1
+set_location_assignment PIN_R1	-to JOY_DOWN   # to data2
+set_location_assignment PIN_K15	-to JOY_FIRE1  # to data3
+set_location_assignment PIN_K16	-to JOY_FIRE2  # to data4 
+```
+### 
+
+
+### Bus SD, y sus direntes nomenclaturas.
+
+
+| TCL y colocación pines 10CL025YU256C8G | Asignación U16 | Explicación modo SPI | Modo MMC/SD Física | nomenclatura modo SPI mayoritario |
+| ----- | ---- | ---- | ---- |
+| set_location_assignment PIN_R12	-to SD_CS |           #SD_NCS |         #Señal de selección                     |   #pin2_mmc/sd CD/DAT3 entrada/salida       |  # CS -> Selección de chip estado normalmente negado |
+| set_location_assignment PIN_T13	-to SD_CLK |         #SD_CLK   |       #Señal de reloj                          |  #pin5_mmc/sd CLK     reloj                 | # SCLK-> Reloj |
+| set_location_assignment PIN_R13	-to SD_MISO |        #SD_SO     |      #Señal de entrada al ser maestro el spi  |  #pin3_mmc/sd CMD     respuesta de comandos | # DI -> Entrada de datos |
+| set_location_assignment PIN_T14	-to SD_MOSI  |       #SD_SI      |     #Señal de salida al ser maestro el spi   |  #pin7_mmc/sd DAT0    entrada/salida        | # DO -> Salida de datos |
+| set_location_assignment PIN_P14	-to SD_DATA1  |                  |                                             | #pin8_mmc/sd DAT1    entrada/salida        | # ---------------------- |
+| set_location_assignment PIN_R14	-to SD_DATA2   |                  |                                            | #pin1_mmc/sd DAT2    entrada/salida        | # ---------------------- |
+
+
