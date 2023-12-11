@@ -1,6 +1,8 @@
 # PINOUT_ATLAS_CYC1000
 Subida del fichero TCL asociado al pineado de la placa CYC1000, Con sus múltiples variantes recogidas en un fichero de texto.
 
+# https://t.me/INICIATIVAATLAS -> El grupo ATLAS esta en Telegram pueden encontrarnos allí, Group ATLAS in Telegram
+
 ### Configuración de variables de entorno global para QUARTUS II
 
 ```
